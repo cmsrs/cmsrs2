@@ -150,4 +150,7 @@ $mv src src_org
 $cp -r  <path_to_cmsrs2>/temp/src .
 $ng serve &
 $chromium-browser --disable-web-security --user-data-dir  http://localhost:4200
+
+#build source
+$ng build --base-href admin
 ```
