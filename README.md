@@ -51,9 +51,10 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 	
 	Insert admin user name demo/demo - to administration panel:
 	
-
+```sql
 		INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
     		(1, 'demo', 'u4qnlunMrSWqcyitTV06gH5C8ZlAaWar', '$2y$13$dN9ipH0Pc2zLBsDGfIkLOuZDvG0Lv5YACMWCAUIYeCHqNKfw3VbDa', NULL, 'demo@localhost.com', 10, 1428424049, 1428424049);
+```
 
 
 3. Set vhosts:
@@ -68,7 +69,7 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 	 url:  `cmsrs3admin.loc` (it is a important name)
 	 `/path/to/yii2-app-advanced/cmsrs/admin/web/`
 
-
+```apache
 		<VirtualHost *:80>
 			ServerName cmsrs3.loc
 			DocumentRoot "/path/to/yii2-app-advanced/cmsrs/frontend/web/"
@@ -109,6 +110,7 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
                # ...other settings...
            </Directory>
        </VirtualHost>
+```       
 
 4. Edit hosts:
 
