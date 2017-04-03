@@ -1,0 +1,65 @@
+<div class="client-form">
+	<form  class="well" [formGroup]="pageForm"  (ngSubmit)="onSubmit( pageForm )" novalidate>
+
+		<h1 *ngIf="!isEdit">Add Page</h1>
+		<h1 *ngIf="isEdit">Edit Page</h1>
+
+		<h3>Page translates</h3>
+		<div formArrayName="translates" >
+			<div *ngFor="let t of pageForm.controls.translates.controls; let i=index">
+				<div class="form-group" [formGroupName]="i" >
+					<label>{{ pageObj.translates[i].type }} {{ pageObj.translates[i].lang }}:</label>
+					<input type="text"  class="form-control"    formControlName="value" /> 
+					<input type="hidden"  class="form-control"  formControlName="lang" /> 
+					<input type="hidden"  class="form-control"  formControlName="type" /> 
+				</div>
+			</div>
+		</div>
+
+		<h3>Page contents</h3>
+		<div formArrayName="contents" >
+			<div *ngFor="let t of pageForm.controls.contents.controls; let i=index">
+				<div class="form-group" [formGroupName]="i" >
+					<label>text {{ pageObj.contents[i].lang }}:</label>
+					<input type="text"  class="form-control"    formControlName="content" /> 
+					<input type="hidden"  class="form-control"  formControlName="lang" /> 
+				</div>
+			</div>
+		</div>
+
+		<h3>Page params</h3>
+		<div  class="form-group"  >
+			<label>published</label>
+			<input type="checkbox"  formControlName="published" />
+		</div>
+
+
+		<div class="form-group" >
+			<label>is left menu?</label>
+			<input name="is_left_menu" type="checkbox"  formControlName="is_left_menu" />
+		</div>
+
+		<div class="form-group" >
+			<label>is intro text?</label>
+			<input name="is_intro_text" type="checkbox"  formControlName="is_intro_text" />
+		</div>
+
+		<h3>Menus</h3>
+		<div  class="form-group">
+			<label>Menus</label>
+			<select name="menus_is" id="menus_id" formControlName="menus_id" require >
+				<option *ngFor="let m of  menuToSelect" [ngValue]="m.id">{{m.menu_short_title}}</option>
+			</select>
+		</div>
+
+
+		<h3>Images (todo)</h3>
+		<div  class="form-group">
+			<input #fileInput type="file"  placeholder="Upload file" accept=".jpg,.png"  />
+			<button (click)="addFile()">Add</button>
+		</div>
+
+
+		<button type="submit" class="btn btn-success" [disabled]="!pageForm.valid">Submit</button>
+	</form>
+</div>
