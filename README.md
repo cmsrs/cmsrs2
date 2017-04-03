@@ -31,29 +31,31 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 
 1. Install:
 
-		git clone https://github.com/yiisoft/yii2-app-advanced.git
-		cd yii2-app-advanced
-		composer global require "fxp/composer-asset-plugin:^1.2.0"
-		composer create-project --prefer-dist yiisoft/yii2-app-advanced cmsrs
+```bash
+	git clone https://github.com/yiisoft/yii2-app-advanced.git
+	cd yii2-app-advanced
+	composer global require "fxp/composer-asset-plugin:^1.2.0"
+	composer create-project --prefer-dist yiisoft/yii2-app-advanced cmsrs
 		
-		cd cmsrs
-		git clone https://github.com/cmsrs/cmsrs2.git
-		rm -rf common frontend admin; mv cmsrs2/* .; rm -rf  cmsrs2
-
+	cd cmsrs
+	git clone https://github.com/cmsrs/cmsrs2.git
+	rm -rf common frontend admin; mv cmsrs2/* .; rm -rf  cmsrs2
+```
 
 2. Set db:
 
 	Change: `common/config/main-local.php` accordingly.
 	
 	Create table to database from `temp/cmsrs4.sql` in my case:
-	
-		mysql --default-character-set=utf8 -u cmsrs -ppass123456 cmsrs < ./temp/cmsrs4.sql 
+```bash	
+	mysql --default-character-set=utf8 -u cmsrs -ppass123456 cmsrs < ./temp/cmsrs4.sql 
+```
 	
 	Insert admin user name demo/demo - to administration panel:
 	
 ```sql
-		INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
-    		(1, 'demo', 'u4qnlunMrSWqcyitTV06gH5C8ZlAaWar', '$2y$13$dN9ipH0Pc2zLBsDGfIkLOuZDvG0Lv5YACMWCAUIYeCHqNKfw3VbDa', NULL, 'demo@localhost.com', 10, 1428424049, 1428424049);
+	INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
+    	(1, 'demo', 'u4qnlunMrSWqcyitTV06gH5C8ZlAaWar', '$2y$13$dN9ipH0Pc2zLBsDGfIkLOuZDvG0Lv5YACMWCAUIYeCHqNKfw3VbDa', NULL, 'demo@localhost.com', 10, 1428424049, 1428424049);
 ```
 
 
@@ -70,45 +72,45 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 	 `/path/to/yii2-app-advanced/cmsrs/admin/web/`
 
 ```apache
-		<VirtualHost *:80>
-			ServerName cmsrs3.loc
-			DocumentRoot "/path/to/yii2-app-advanced/cmsrs/frontend/web/"
+	<VirtualHost *:80>
+		ServerName cmsrs3.loc
+		DocumentRoot "/path/to/yii2-app-advanced/cmsrs/frontend/web/"
 			
-			<Directory "/path/to/yii2-app-advanced/cmsrs/frontend/web/">
-               # use mod_rewrite for pretty URL support
-               RewriteEngine on
-               # If a directory or a file exists, use the request directly
-               RewriteCond %{REQUEST_FILENAME} !-f
-               RewriteCond %{REQUEST_FILENAME} !-d
-               # Otherwise forward the request to index.php
-               RewriteRule . index.php
+		<Directory "/path/to/yii2-app-advanced/cmsrs/frontend/web/">
+               		# use mod_rewrite for pretty URL support
+               		RewriteEngine on
+               		# If a directory or a file exists, use the request directly
+               		RewriteCond %{REQUEST_FILENAME} !-f
+               		RewriteCond %{REQUEST_FILENAME} !-d
+               		# Otherwise forward the request to index.php
+               		RewriteRule . index.php
 
-               # use index.php as index file
-               DirectoryIndex index.php
+               		# use index.php as index file
+               		DirectoryIndex index.php
 
-               # ...other settings...
-			</Directory>
+               		# ...other settings...
+		</Directory>
        </VirtualHost>
 
 
-		<VirtualHost *:80>
-			ServerName cmsrs3admin.loc  
-			DocumentRoot "/path/to/yii2-app-advanced/cmsrs/admin/web/"
+	<VirtualHost *:80>
+		ServerName cmsrs3admin.loc  
+		DocumentRoot "/path/to/yii2-app-advanced/cmsrs/admin/web/"
 			
-			<Directory "/path/to/yii2-app-advanced/cmsrs/admin/web/">
-               # use mod_rewrite for pretty URL support
-               RewriteEngine on
-               # If a directory or a file exists, use the request directly
-               RewriteCond %{REQUEST_FILENAME} !-f
-               RewriteCond %{REQUEST_FILENAME} !-d
-               # Otherwise forward the request to index.php
-               RewriteRule . index.php
+		<Directory "/path/to/yii2-app-advanced/cmsrs/admin/web/">
+               		# use mod_rewrite for pretty URL support
+               		RewriteEngine on
+               		# If a directory or a file exists, use the request directly
+               		RewriteCond %{REQUEST_FILENAME} !-f
+               		RewriteCond %{REQUEST_FILENAME} !-d
+               		# Otherwise forward the request to index.php
+               		RewriteRule . index.php
 
-               # use index.php as index file
-               DirectoryIndex index.php
+               		# use index.php as index file
+               		DirectoryIndex index.php
 
-               # ...other settings...
-           </Directory>
+               		# ...other settings...
+           	</Directory>
        </VirtualHost>
 ```       
 
@@ -119,8 +121,10 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 
 5. Run server side tests:
 
-		cd temp/scripts_cli
-		./go.sh
+```basg
+	cd temp/scripts_cli
+	./go.sh
+```
 
 6. Config cms:
 
@@ -144,15 +148,15 @@ For developers:
 - run administration cmsrs panel from source (Angular 2)
 
 ```bash
-$cd ~
-$mkdir cmsrs 
-$cd cmsrs
-$ng new admincmsrs
-$mv src src_org
-$cp -r  <path_to_cmsrs2>/temp/src .
-$ng serve &
-$chromium-browser --disable-web-security --user-data-dir  http://localhost:4200
-
-#build source
-$ng build --base-href admin
+	cd ~
+	mkdir cmsrs 
+	cd cmsrs
+	ng new admincmsrs
+	mv src src_org
+	cp -r  <path_to_cmsrs2>/temp/src .
+	ng serve &
+	chromium-browser --disable-web-security --user-data-dir  http://localhost:4200
+	
+	#build source
+	ng build --base-href admin
 ```
