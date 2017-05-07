@@ -116,12 +116,14 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 
 4. Edit hosts:
 
-		127.0.0.1 cmsrs3.loc
-		127.0.0.1 cmsrs3admin.loc
+```bash
+	127.0.0.1 cmsrs3.loc
+	127.0.0.1 cmsrs3admin.loc
+```	
 
 5. Run server side tests:
 
-```basg
+```bash
 	cd temp/scripts_cli
 	./go.sh
 ```
