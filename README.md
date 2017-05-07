@@ -47,11 +47,12 @@ http://www.cmsrs.pl/en/cms/cmsrs/about-cmsrs
 	Change: `common/config/main-local.php` accordingly.
 	
 	Create table to database from `temp/cmsrs4.sql` in my case:
+	
 ```bash	
 	mysql --default-character-set=utf8 -u cmsrs -ppass123456 cmsrs < ./temp/cmsrs4.sql 
 ```
 	
-	Insert admin user name demo/demo - to administration panel:
+Insert admin user name demo/demo - to administration panel:
 	
 ```sql
 	INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES
