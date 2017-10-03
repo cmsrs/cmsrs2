@@ -74,7 +74,7 @@ export class PageService{
 		let input = new FormData();
 		input.append("file", fileToUpload);
 		//input.append("file", fileToUpload.files[0]);
-		input.append("pages_id", 1);
+		input.append("pages_id", "1");
 
 
 	    let headers = new Headers({ 'Authorization': 'Bearer ' + this.userService.getToken() });

@@ -12,7 +12,7 @@ import {NgForm} from '@angular/forms';
 
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'login',
   template: `
 
