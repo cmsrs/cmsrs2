@@ -5,7 +5,7 @@
 
 CmsRS is a cms base on: 
 * Yii2 advanced template 
-* Angular v2 (administration panel)
+* Angular v4 (administration panel)
 * CSS · Bootstrap (frontend and backend)
 
 This is cutdown version of my cms.
@@ -148,7 +148,7 @@ Insert admin user name demo/demo - to administration panel:
 
 For developers:
 
-- run administration cmsrs panel from source (Angular 2)
+- run administration cmsrs panel from source (Angular 4)
 
 ```bash
 	cd ~
