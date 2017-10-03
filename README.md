@@ -155,6 +155,7 @@ For developers:
 	mkdir cmsrs 
 	cd cmsrs
 	ng new admincmsrs
+	cd admincmsrs
 	mv src src_org
 	cp -r  <path_to_cmsrs2>/temp/src .
 	ng serve &
